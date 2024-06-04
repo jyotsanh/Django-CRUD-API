@@ -22,3 +22,17 @@ class StudentSerialzers(serializers.Serializer):
         if name.lower() == 'jyotsan':
             raise serializers.ValidationError('Jyotsan is not allowed')
         return attrs
+    
+class StudentModelSerialzers(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = "__all__"
+    def validate_roll(self,data):
+        if data > 100:
+            raise serializers.ValidationError('Roll number should be less than 100')
+        return data
+    def validate(self, attrs):
+        name = attrs.get('name')
+        if name.lower() == 'jyotsan':
+            raise serializers.ValidationError('Jyotsan is not allowed')
+        return attrs

@@ -1,6 +1,6 @@
 import requests
 import json
-URL = "http://127.0.0.1:8000/studentapi/"
+URL = "http://127.0.0.1:8000/studentmodelapi/"
 
 
 
@@ -27,8 +27,8 @@ def put_data():
 def post_data():
     data = {
         'name':'jyotsan',
-        'city':'kathmandu',
-        'roll':108,
+        'city':'bhaktapur',
+        'roll':56,
     }
     json_data = json.dumps(data)
     r = requests.post(data=json_data,url=URL)
