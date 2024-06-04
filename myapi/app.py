@@ -24,4 +24,15 @@ def put_data():
     print(r)
     print(r.json())
     
-get_student_info(3)
+def post_data():
+    data = {
+        'name':'jyotsan',
+        'city':'kathmandu',
+        'roll':108,
+    }
+    json_data = json.dumps(data)
+    r = requests.post(data=json_data,url=URL)
+    print(r)
+    print(r.json())
+    
+post_data()

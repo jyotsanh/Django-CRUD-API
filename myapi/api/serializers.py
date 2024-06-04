@@ -13,3 +13,12 @@ class StudentSerialzers(serializers.Serializer):
         instance.city = validate_data.get('city',instance.city)
         instance.save()
         return instance
+    # field level validation
+    def validate_roll(self,data):
+        None
+    # object level validation
+    def validate(self, attrs):
+        name = attrs.get('name')
+        if name.lower() == 'jyotsan':
+            raise serializers.ValidationError('Jyotsan is not allowed')
+        return attrs
